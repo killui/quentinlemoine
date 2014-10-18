@@ -60,7 +60,7 @@ function callHook() {
  
     $controllerName = $controller;
     $controller = ucwords($controller);
-    $model = rtrim($controller, 's');
+    $model = rtrim($controller,'_');
     $controller = 'Controller';
     $dispatch = new $controller($model,$controllerName,$action);
  
@@ -70,8 +70,10 @@ function callHook() {
         /* Error Generation Code Here */
     }
 }
- 
-/** Autoload any classes that are required **/
+
+/** Autoload any classes that are required *
+ * @param $className
+ */
  
 function __autoload($className) {
     if (file_exists(ROOT . DS . 'library' . DS . strtolower($className) . '.class.php')) {
