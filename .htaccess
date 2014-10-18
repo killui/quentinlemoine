@@ -1,5 +1,11 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteRule    ^$    public/    [L]
-    RewriteRule    (.*) public/$1    [L]
- </IfModule>
+ReWriteEngine On
+
+
+ReWriteCond %{REQUEST_FILENAME} !-d
+ReWriteCond %{REQUEST_FILENAME} !-f
+ReWriteCond %{REQUEST_FILENAME} !-l
+
+#ReWriteBase /crawd
+
+#ReWriteRule ^([a-zA-Z0-9]*)/?(.*)$ index.php?url=$0 [QSA,L]
+ReWriteRule ^(.*)$ index.php?url=$0 [QSA,L]
