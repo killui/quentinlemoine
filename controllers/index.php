@@ -10,6 +10,8 @@ class index extends Controller {
         $title = "index";
 
         $this->View->render('index', $title, $page);
+
+
     }
 
 }

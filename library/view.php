@@ -6,7 +6,7 @@ class View {
         
     }
     
-    public function render($view, $title, $page, $projects, $more_projects){
+    public function render($view, $title, $page, $data){
         require 'views/header.php';
         require 'views/'.$view.'.php';
         require 'views/footer.php';
